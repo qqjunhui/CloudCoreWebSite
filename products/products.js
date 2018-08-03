@@ -1,12 +1,32 @@
 jQuery(document).ready(function() {
     "use strict";
 
-
     /* ------- Preloader ------ */
     $(window).load(function(){
         $('.preloader').delay(1000).slideUp('slow'); // set duration in brackets
     });
-
+    if( $('.detail_nav').length>0){
+        window.addEventListener("scroll", function (e) {
+            var top = document.documentElement.scrollTop || document.body.scrollTop;
+            if (top > 200) {
+                $('.detail_nav').css('top',120+'px');
+                $('.fixed_a').addClass('active');
+            }else{
+                $('.detail_nav').css('top',320-top+'px');
+                $('.fixed_a').removeClass('active');
+            }
+        });
+    }
+    /*---------上一篇下一篇显示三行"..."---------*/
+    $('.row.article_box .article p:last-child').each(function (index,val) {
+        $clamp(val,{clamp:3});
+    });
+    $('.article_box .article span').each(function (index,val) {
+        $clamp(val,{clamp:3});
+    });
+    $('.article-content div p').each(function (index,val) {
+        $clamp(val,{clamp:10});
+    });
     /* -------- Appears Menu 滚动显示scroll ------ */
     $(window).on('ready , scroll', function() {
         if ($(window).scrollTop() > 30) {
@@ -39,6 +59,7 @@ jQuery(document).ready(function() {
             callback:     function(box) {
                 // the callback is fired every time an animation is started
                 // the argument that is passed in is the DOM node being animated
+                $('.hidddden').removeClass('hidddden');
             }
         }
     );
@@ -95,4 +116,8 @@ jQuery(document).ready(function() {
         $('footer .content p').removeClass('active');
         $("footer .content p:eq(" + $(this).index() + ")").addClass('active');
     })
+
+    if(location.href.indexOf('?')>-1){
+        $("html,body").scrollTop($('#'+location.href.split('?')[1]).position().top-130);
+    }
 });

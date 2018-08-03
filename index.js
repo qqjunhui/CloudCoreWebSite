@@ -108,7 +108,6 @@ jQuery(document).ready(function () {
         svgVobj2.reset();
         svgVobj2.play(1);
     };
-    /*返回頂部*/
 
     /*底部切换*/
     $('.contact div').mouseover(function () {

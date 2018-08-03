@@ -141,7 +141,7 @@
     border-radius: 50%;
     /*padding: 0px;*/
     top: 18px;
-    left: 6.5%;
+    left: 9.5%;
     /*margin-left: -33px;*/
     border: 4px solid #fff;
     -webkit-transition: all .3s ease-out;
@@ -199,10 +199,10 @@
 .timeline__item__content::before {
     content: '';
     position: absolute;
-    left: 7%;
+    left: 10%;
     background: rgba(255, 255, 255, 0.35);
     top: 20px;
-    width: 13%;
+    width: 10%;
     height: 2px;
     z-index: -1;
     -webkit-transition: all .3s ease-out;
@@ -292,7 +292,7 @@
     -ms-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s;
-    color: #1DCB8B;
+    color: #61BC46;
     background-color: #28292e;
     padding: 10px 20px;
     margin:20px;
@@ -300,6 +300,11 @@
 }
 .portfolio-filter-btn-group  .btn-group button:hover{
     padding: 10px 20px;
-    color: #1DCB8B;
+    color: #61BC46;
     background-color: #fff;
+}
+
+.about_line_height{
+    line-height:28px;
+    text-indent:30px;
 }
