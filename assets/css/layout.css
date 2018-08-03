@@ -1084,6 +1084,10 @@ footer p{
     color: rgba(255,255,255,0.81);
 }
 
+.footer > div > p:first-child{
+     margin-top: 7px;
+}
+
 footer ul {
     display: inline-block;
 }
@@ -1168,8 +1172,11 @@ footer ul li a i{
     justify-content: flex-end;
 }
 .footer > div:last-child > div div{
-    margin:0 15px;
+    margin:2px 15px 0;
     color:#fff;
+}
+.footer > div:last-child > div div:nth-child(2){
+    margin-top:0;
 }
 .footer > div:last-child > div > div:not(.active){
     color: rgba(255,255,255,0.6);
@@ -1342,7 +1349,9 @@ a.button_box{
     .partner-box .partner-slider-1{
         width: 4000px;
     }
-
+    .customized-text p {
+        max-width: 100%;
+    }
     @keyframes partner-slider-1{
         100% {
             -webkit-transform: translate3d(-2000px, 0, 0);
@@ -1361,6 +1370,7 @@ a.button_box{
     .section-header {
         margin-bottom: 60px;
         text-align: center;
+        overflow: hidden;
     }
 
     .navbar-toggle {

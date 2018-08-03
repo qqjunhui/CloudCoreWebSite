@@ -142,7 +142,7 @@ h2.highlight-bg+h2{
     display: block;
 }
 .product_height{
-    height:465px;
+    height:500px;
 }
 .margin-bottom{
     margin-bottom:100px;
@@ -449,6 +449,9 @@ td:first-child,th:first-child{
 }
 .details a,.details a:hover{
     color:#61BC46;
+}
+.article-content p{
+    line-height: 2em;
 }
 @media screen and (min-width: 576px) and (max-width: 767px) {
     .detail_nav{

@@ -112,15 +112,15 @@
     position: relative;
     font-size: 18px;
 }
-.caDet-content .con-left p a:before{
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 36px;
-    width: 73px;
-    height: 12px;
-    background: #7095FE;
-}
+/*.caDet-content .con-left p a:before{*/
+    /*content: '';*/
+    /*position: absolute;*/
+    /*bottom: -5px;*/
+    /*left: 36px;*/
+    /*width: 73px;*/
+    /*height: 12px;*/
+    /*background: #7095FE;*/
+/*}*/
 .caDet-content .con-right{
     margin-left:268px;
     border-left:1px solid #D9D9D9;

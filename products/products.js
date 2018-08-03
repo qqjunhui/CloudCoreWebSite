@@ -25,7 +25,7 @@ jQuery(document).ready(function() {
         $clamp(val,{clamp:3});
     });
     $('.article-content div p').each(function (index,val) {
-        $clamp(val,{clamp:10});
+        $clamp(val,{clamp:8});
     });
     /* -------- Appears Menu 滚动显示scroll ------ */
     $(window).on('ready , scroll', function() {
@@ -118,6 +118,7 @@ jQuery(document).ready(function() {
     })
 
     if(location.href.indexOf('?')>-1){
-        $("html,body").scrollTop($('#'+location.href.split('?')[1]).position().top-130);
+        if(location.href.split('?')[1]=='finance') $("html,body").scrollTop($('#finance').position().top-$('#finance').height()-400);
+        else $("html,body").scrollTop($('#'+location.href.split('?')[1]).position().top-130);
     }
 });

@@ -109,6 +109,8 @@ jQuery(document).ready(function () {
         svgVobj2.play(1);
     };
 
+    $('#svg-continer-2').hover(window.vvv);
+
     /*底部切换*/
     $('.contact div').mouseover(function () {
         $('.contact div').removeClass('active');

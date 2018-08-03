@@ -25,7 +25,7 @@
     position: absolute;
     top: 0;
     left: 10%;
-    width: 4px;
+    width: 1px;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.35);
 }
@@ -44,10 +44,14 @@
 }
 
 .timeline__item {
-    margin-bottom: 20px;
+    margin-bottom: -20px;
     position: relative;
 }
-
+@media  (max-width:576px) {
+    .timeline__item {
+        margin-bottom: 20px;
+    }
+}
 .timeline__item::after {
     content: "";
     clear: both;
@@ -135,8 +139,8 @@
 
 .timeline__item__station {
     background-color: #9aa0b9;
-    width: 4px;
-    height: 4px;
+    width: 8px;
+    height: 8px;
     position: absolute;
     border-radius: 50%;
     /*padding: 0px;*/
@@ -150,10 +154,10 @@
 
 @media (min-width: 768px) {
     .timeline__item__station {
-        left: 49.7%;
+        left: 49.6%;
         /*margin-left: -30px;*/
-        width: 4px;
-        height: 4px;
+        width: 8px;
+        height: 8px;
         padding: 0px;
         border-width: 4px;
         top: 25px;
@@ -161,10 +165,10 @@
 }
 @media (min-width: 576px) {
     .timeline__item__station {
-        left: 49.7%;
+        left: 49.6%;
         /*margin-left: -30px;*/
-        width: 4px;
-        height: 4px;
+        width: 8px;
+        height: 8px;
         padding: 0px;
         border-width: 4px;
         top: 25px;
@@ -247,7 +251,7 @@
     padding: 0;
     font-size: 14px;
     line-height: 24px;
-    font-weight: 300;
+    font-weight: 400;
     color: #fff;
 }
 
@@ -280,7 +284,8 @@
     color: #8287a9;
 }
 .about_address{
-    color:#fff;
+    color:#FFFFFF;
+    line-height:35px;
 }
 .about_map{
     height:300px;
@@ -296,7 +301,7 @@
     background-color: #28292e;
     padding: 10px 20px;
     margin:20px;
-    border: 1px solid #333;
+    border: 1px solid rgba(255,255,255,0.35);
 }
 .portfolio-filter-btn-group  .btn-group button:hover{
     padding: 10px 20px;
@@ -307,4 +312,14 @@
 .about_line_height{
     line-height:28px;
     text-indent:30px;
+}
+.about_14{
+    font-size: 14px;
+    color: rgba(255,255,255,0.81);
+}
+.about_18{
+    font-size: 18px;
+}
+.about_24{
+    font-size: 24px;
 }

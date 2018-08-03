@@ -15,6 +15,23 @@ jQuery(document).ready(function() {
         jQuery("#nav-menu").removeClass("in").addClass("collapse");
     });
 
+    /* ---------- Wow Js ---------- */
+    var wow = new WOW(
+        {
+            boxClass:     'wow',      // animated element css class (default is wow)
+            animateClass: 'wow animated', // animation css class (default is animated)
+            offset:       250,          // distance to the element when triggering the animation (default is 0)
+            mobile:       true,       // trigger animations on mobile devices (default is true)
+            live:         true,       // act on asynchronously loaded content (default is true)
+            callback:     function(box) {
+                // the callback is fired every time an animation is started
+                // the argument that is passed in is the DOM node being animated
+                $('.hidddden').removeClass('hidddden');
+            }
+        }
+    );
+    wow.init();
+
     /*--------------底部切换-------------*/
     $('.contact div').mouseover(function(){
         $('.contact div').removeClass('active');
@@ -25,19 +42,27 @@ jQuery(document).ready(function() {
 
     //瀑布流
     var $container = $('#masonry');
-    if($container.length){
-        $container.imagesLoaded(function() {
-            $container.masonry({
-                // set itemSelector so .grid-sizer is not used in layout
-                itemSelector: '.grid-item',
-                // use element for option
-                columnWidth: '.grid-item',
-                // percentPosition: true,
-                isFitWidth: true,
-                isAnimated: true,
-            });
-        });
-    }
+    $container.isotope({
+        itemSelector: '.grid-item',
+        animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
+        }
+    });
+    // if($container.length){
+    //     $container.imagesLoaded(function() {
+    //         $container.masonry({
+    //             // set itemSelector so .grid-sizer is not used in layout
+    //             itemSelector: '.grid-item',
+    //             // use element for option
+    //             columnWidth: '.grid-item',
+    //             // percentPosition: true,
+    //             isFitWidth: true,
+    //             isAnimated: true,
+    //         });
+    //     });
+    // }
 
 
 
@@ -149,8 +174,8 @@ jQuery(document).ready(function() {
                 var $items=$(html);
                 $container.append( $items );
                 $container.imagesLoaded(function() {//图片加载完成之后再渲染新加的块儿
-                    $container.masonry( 'appended', $items ,true)
-                        .masonry('reloadItems');
+                    $container.isotope( 'appended', $items ,true)
+                        .isotope('reloadItems');
                 });
                 clampTxt();
                 n++;

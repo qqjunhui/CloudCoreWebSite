@@ -1,10 +1,9 @@
 jQuery(document).ready(function() {
     "use strict";
 
-
     /* ------- Preloader ------ */
     $(window).load(function(){
-        $('.preloader').delay(1000).slideUp('slow'); // set duration in brackets
+        $('.preloader').delay(2000).slideUp('slow'); // set duration in brackets
     });
 
     /* -------- Appears Menu 滚动显示scroll ------ */
@@ -39,40 +38,41 @@ jQuery(document).ready(function() {
             callback:     function(box) {
                 // the callback is fired every time an animation is started
                 // the argument that is passed in is the DOM node being animated
+                $('.hidddden').removeClass('hidddden');
             }
         }
     );
     wow.init();
 
     // /* ---------- ISoptope --------- */
-    // var $container = $('.portfolio-items');
-    //
-    // // filter items on button click
-    // $container.isotope({
-    //     filter: '*',
-    //     itemSelector: '.item',
-    //     animationOptions: {
-    //         duration: 750,
-    //         easing: 'linear',
-    //         queue: false
-    //     }
-    // });
+    var $container = $('.portfolio-items');
+
+    // filter items on button click
+    $container.isotope({
+        filter: '*',
+        itemSelector: '.item',
+        animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
+        }
+    });
 
     //瀑布流
-    var $container = $('.portfolio-items');
-    if($container.length){
-        $container.imagesLoaded(function() {
-            $container.masonry({
-                // set itemSelector so .grid-sizer is not used in layout
-                itemSelector: '.item',
-                // use element for option
-                columnWidth: '.item',
-                percentPosition: true,
-                // isFitWidth: true,
-                isAnimated: true,
-            });
-        });
-    }
+    // var $container = $('.portfolio-items');
+    // if($container.length){
+    //     $container.imagesLoaded(function() {
+    //         $container.masonry({
+    //             // set itemSelector so .grid-sizer is not used in layout
+    //             itemSelector: '.item',
+    //             // use element for option
+    //             columnWidth: '.item',
+    //             percentPosition: true,
+    //             // isFitWidth: true,
+    //             isAnimated: true,
+    //         });
+    //     });
+    // }
 
 
     // $('#portfolio-filter ul li a').on('click',function(){
@@ -93,13 +93,14 @@ jQuery(document).ready(function() {
     var imgData=[
         {img:'../assets/images/cases/cover09.jpg',det:'casesDet_9.html',title:'海南农信社手机银行'},
         {img:'../assets/images/cases/cover10.jpg',det:'casesDet_10.html',title:'网银管家云服务'},
-        {img:'../assets/images/cases/cover11.jpg',det:'casesDet_11.html',title:'昆山农商行手机银行'},
+        {img:'../assets/images/cases/cover11.jpg',det:'casesDet_11.html',title:'昆山农商行个人手机银行'},
         {img:'../assets/images/cases/cover12.jpg',det:'casesDet_12.html',title:'昆山农商行个人网银'},
         {img:'../assets/images/cases/cover13.jpg',det:'casesDet_13.html',title:'深圳农商行小微金融'},
         {img:'../assets/images/cases/cover14.jpg',det:'casesDet_14.html',title:'深圳农商行手机银行'},
         {img:'../assets/images/cases/cover15.jpg',det:'casesDet_15.html',title:'太仓农商行手机银行'},
         {img:'../assets/images/cases/cover16.jpg',det:'casesDet_16.html',title:'紫金农商行手机银行'},
-        {img:'../assets/images/cases/cover17.png',det:'casesDet_17.html',title:'宁波清算中心移动支付'}
+        {img:'../assets/images/cases/cover17.png',det:'casesDet_17.html',title:'宁波清算中心移动支付'},
+        {img:'../assets/images/cases/talkToMe.jpg',det:'../about/about.html#portfolio'},
     ];
     var n=1;
     //滑动到底部加载更多
@@ -113,20 +114,26 @@ jQuery(document).ready(function() {
                 var html='';
                 var len=imgData.length-(8*n-8)>=8 ? 8*n : 8*(n-1)+imgData.length-(8*n-8);
                 for(var i=8*n-8;i<len;i++){
-                    html+='<div class="item portfolio-item" onclick="location.href=\''+imgData[i].det+'\'">\n' +
-                        '                <img src='+imgData[i].img+'>\n' +
-                        '                <div class="portfolio-details-wrapper">\n' +
-                        '                    <div class="portfolio-details">\n' +
-                        '                        <h3 class="animated slideInDown">'+imgData[i].title+'</h3>\n' +
-                        '                    </div>\n' +
-                        '                </div>\n' +
-                        '            </div>';
+                    if(i==imgData.length-1){
+                        html+='<div class="item portfolio-item" onclick="location.href=\''+imgData[i].det+'\'">' +
+                            '                <img src='+imgData[i].img+'>' +
+                            '            </div>';
+                    }else{
+                        html+='<div class="item portfolio-item" onclick="location.href=\''+imgData[i].det+'\'">' +
+                            '                <img src='+imgData[i].img+'>' +
+                            '                <div class="portfolio-details-wrapper">' +
+                            '                    <div class="portfolio-details">' +
+                            '                        <h3 class="animated slideInDown">'+imgData[i].title+'</h3>' +
+                            '                    </div>' +
+                            '                </div>' +
+                            '            </div>';
+                    }
                 }
                 var $items=$(html);
                 $container.append( $items );
                 $container.imagesLoaded(function() {//图片加载完成之后再渲染新加的块儿
-                    $container.masonry( 'appended', $items ,true)
-                        .masonry('reloadItems');
+                    $container.isotope( 'appended', $items ,true)
+                        .isotope('reloadItems');
                 });
                 n++;
             }
